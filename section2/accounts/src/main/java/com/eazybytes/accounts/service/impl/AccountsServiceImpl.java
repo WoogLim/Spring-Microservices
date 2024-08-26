@@ -47,8 +47,6 @@ public class AccountsServiceImpl implements IAccountsService {
         if(optionalCustomer.isPresent()){
             throw new CustomerAlreadyExistsException("이미 동일한 휴대전화 번호로 가입된 계정이 존재합니다." + customerDto.getMobileNumber());
         }
-        customer.setCreatedAt(LocalDateTime.now());
-        customer.setCreatedBy("Anonymous");
 
         // JPA에 의해 SQL문을 작성, 데이터베이스 커넥션, SQL문 실행, 커밋, 트랜잭션, 연결 디스커넥션이 자동으로 처리
         Customer savedCustomer = customerRepository.save(customer);
@@ -68,8 +66,6 @@ public class AccountsServiceImpl implements IAccountsService {
         newAccount.setAccountNumber(randomAccNumber);
         newAccount.setAccountType(AccountsConstants.SAVINGS);
         newAccount.setBranchAddress(AccountsConstants.ADDRESS);
-        newAccount.setCreatedAt(LocalDateTime.now());
-        newAccount.setCreatedBy("Anonymous");
         return newAccount;
     }
 
