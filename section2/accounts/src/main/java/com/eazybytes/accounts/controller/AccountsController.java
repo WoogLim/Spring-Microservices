@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 // @RequestMapping Json 유형의 응답을 제공할 것임을 명시
 // @AllArgsConstructor 생성자를 자동으로 호출. 아래 같은 경우 인터페이스를 구현한 서비스로 초기화
 // @Validated 모든 REST API에 대한 유효성 검사를 수행
+// 어플리케이션간 mTLS 적용 필요
 @RestController
 @RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
 @AllArgsConstructor
